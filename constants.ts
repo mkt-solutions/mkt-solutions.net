@@ -57,15 +57,37 @@ export const PRODUCTS: Product[] = [
     features: ['Meta Ads (Insta/Face)', 'TikTok Ads', 'Criação de Criativos', 'Segmentação Avançada']
   },
   {
+    id: 's7',
+    name: 'Whatsapp Agente de IA',
+    tagline: 'Seu Comercial no Automático.',
+    description: 'Atendimento WhatsApp com inteligência artificial. Resolve tudo o que o cliente precisa por você 24/7.',
+    longDescription: 'Não perca mais nenhuma venda por demora no atendimento. Nosso Agente de IA para WhatsApp é treinado com o conhecimento do seu negócio para responder dúvidas, enviar orçamentos e até fechar agendamentos de forma humana e natural, em qualquer horário do dia ou da noite.',
+    price: 3200,
+    category: 'IA',
+    imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1000',
+    features: ['Atendimento Humanoide', 'Disponibilidade 24/7', 'Fechamento de Vendas', 'Integração Direta']
+  },
+  {
+    id: 's8',
+    name: 'Email como Agente de IA',
+    tagline: 'Inbox Inteligente.',
+    description: 'Todas as informações solicitadas no email, respondidas instantaneamente pela inteligência artificial.',
+    longDescription: 'Zere sua caixa de entrada com inteligência. Este agente monitora seus e-mails recebidos e redige respostas precisas para solicitações de suporte, dúvidas técnicas ou pedidos de orçamento, mantendo o tom de voz da sua marca e garantindo agilidade total na comunicação.',
+    price: 2800,
+    category: 'IA',
+    imageUrl: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=1000',
+    features: ['Resposta Automática IA', 'Análise de Contexto', 'Triagem de Leads', 'Personalização de Tom']
+  },
+  {
     id: 's4',
     name: 'Implantação de Chatbot IA',
     tagline: 'Atendimento 24/7.',
-    description: 'Automação inteligente com IA para qualificação de leads e atendimento automático.',
-    longDescription: 'Transforme seu atendimento em uma máquina de vendas incansável. Implementamos chatbots equipados com inteligência artificial que entendem o contexto e as dúvidas dos seus clientes. Integrado ao seu site ou WhatsApp, a IA qualifica os leads antes mesmo de chegarem ao seu time comercial.',
+    description: 'Automação inteligente com IA para qualificação de leads e atendimento automático no site.',
+    longDescription: 'Transforme seu atendimento em uma máquina de vendas incansável. Implementamos chatbots equipados com inteligência artificial que entendem o contexto e as dúvidas dos seus clientes. Integrado ao seu site, a IA qualifica os leads antes mesmo de chegarem ao seu time comercial.',
     price: 2500,
     category: 'IA',
     imageUrl: 'https://mkt-solutions.net/imgia/chatbot.jpg',
-    features: ['Inteligência Artificial', 'Integração WhatsApp/Web', 'Qualificação Automática', 'Suporte Multilingue']
+    features: ['Inteligência Artificial', 'Integração Web', 'Qualificação Automática', 'Suporte Multilingue']
   },
   {
     id: 's6',
