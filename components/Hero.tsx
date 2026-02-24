@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
   return (
     <section 
       className="relative w-full h-screen min-h-[800px] overflow-hidden flex items-center bg-[#1a1a1a]"
-      aria-label="Soluções de Marketing Digital e Gestão de Tráfego Google Ads para sua empresa"
+      aria-label="Soluções de Marketing Digital e Gestão de Tráfego Google Ads"
     >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">

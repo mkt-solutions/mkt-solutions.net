@@ -43,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
         <h3 className="text-xl font-black text-slate-800 mb-2 group-hover:text-[#FF6600] transition-colors tracking-tighter">{product.name}</h3>
         <p className="text-sm font-bold text-slate-500 mb-4 line-clamp-2 leading-relaxed">{product.description}</p>
         <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-            <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Planos a partir de</span>
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Valor de implantação</span>
             <span className="text-lg font-black text-slate-800">R$ {product.price}</span>
         </div>
       </div>

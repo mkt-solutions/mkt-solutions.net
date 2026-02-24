@@ -73,7 +73,7 @@ export const PRODUCTS: Product[] = [
     tagline: 'Inbox Inteligente.',
     description: 'Todas as informações solicitadas no email, respondidas instantaneamente pela inteligência artificial.',
     longDescription: 'Zere sua caixa de entrada com inteligência. Este agente monitora seus e-mails recebidos e redige respostas precisas para solicitações de suporte, dúvidas técnicas ou pedidos de orçamento, mantendo o tom de voz da sua marca e garantindo agilidade total na comunicação.',
-    price: 2800,
+    price: 1200,
     category: 'IA',
     imageUrl: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=1000',
     features: ['Resposta Automática IA', 'Análise de Contexto', 'Triagem de Leads', 'Personalização de Tom']
