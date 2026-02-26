@@ -58,7 +58,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 's7',
-    name: 'Whatsapp Agente de IA',
+    name: 'Whatsapp / Telegram Agente de IA',
     tagline: 'Seu Comercial no Automático.',
     description: 'Atendimento WhatsApp com inteligência artificial. Resolve tudo o que o cliente precisa por você 24/7.',
     longDescription: 'Não perca mais nenhuma venda por demora no atendimento. Nosso Agente de IA para WhatsApp é treinado com o conhecimento do seu negócio para responder dúvidas, enviar orçamentos e até fechar agendamentos de forma humana e natural, em qualquer horário do dia ou da noite.',

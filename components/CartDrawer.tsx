@@ -17,7 +17,7 @@ interface CartDrawerProps {
 }
 
 const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemoveItem, onCheckout }) => {
-  const total = items.reduce((sum, item) => sum + item.price, 0);
+
 
   return (
     <>
@@ -69,7 +69,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
                   <div>
                     <div className="flex justify-between items-start">
                         <h3 className="font-black text-slate-800 tracking-tighter">{item.name}</h3>
-                        <span className="text-sm font-black text-[#FF6600]">R$ {item.price}</span>
+
                     </div>
                     <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-1 font-bold">{item.category}</p>
                   </div>
@@ -89,7 +89,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
         <div className="p-8 border-t border-slate-100 bg-slate-50">
           <div className="flex justify-between items-center mb-6">
             <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Total Previsto</span>
-            <span className="text-2xl font-black text-slate-800">R$ {total}</span>
+            <span className="text-2xl font-black text-slate-800">Sob Consulta</span>
           </div>
           <p className="text-[10px] text-slate-400 mb-6 text-center font-bold">Impostos e taxas serão calculados no fechamento final.</p>
           <button 

@@ -53,13 +53,27 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, onAddToC
                  <p className="text-xl text-slate-600 leading-relaxed font-bold">
                    {product.longDescription || product.description}
                  </p>
+                 {product.id === 's7' && (
+                   <>
+                     <p className="text-sm text-slate-500 mt-4">Você pode testar o funcionamento do Agente Boris pelo link abaixo:</p>
+                     <a 
+                       href="https://t.me/agente_boris_bot"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="mt-6 inline-flex items-center gap-2 text-sm font-black uppercase tracking-widest text-[#FF6600] hover:text-[#e65c00] transition-colors"
+                     >
+                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 8.2L12 15L2 8.2M2 15V9L12 2L22 9V15L12 22L2 15Z"/></svg>
+                       Testar Agente Boris no Telegram
+                     </a>
+                   </>
+                 )}
              </div>
 
              <div className="flex flex-col gap-6">
                <div className="flex items-center justify-between px-2">
                    <div className="flex flex-col">
                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Investimento Estimado</span>
-                       <span className="text-4xl font-black text-slate-800">R$ {product.price}</span>
+                       <span className="text-2xl font-semibold text-slate-700">Sob Consulta</span>
                    </div>
                    <div className="text-right">
                        <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest block mb-1">Status: Ativo</span>

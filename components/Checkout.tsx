@@ -24,8 +24,7 @@ const Checkout: React.FC<CheckoutProps> = ({ items, onBack }) => {
   const [status, setStatus] = useState<LoadingState>(LoadingState.IDLE);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const subtotal = items.reduce((sum, item) => sum + item.price, 0);
-  const total = subtotal;
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -47,8 +46,8 @@ const Checkout: React.FC<CheckoutProps> = ({ items, onBack }) => {
     const payload = {
         _subject: `Nova Proposta Site: ${formData.empresa || formData.nome}`,
         ...formData,
-        itens_selecionados: items.map(i => `${i.name} (R$ ${i.price})`).join(', '),
-        valor_total: `R$ ${total}`,
+        itens_selecionados: items.map(i => i.name).join(', '),
+        valor_total: 'Sob Consulta',
         _honey: "" // Campo anti-spam
     };
 
@@ -137,7 +136,7 @@ const Checkout: React.FC<CheckoutProps> = ({ items, onBack }) => {
                     disabled={status === LoadingState.LOADING}
                     className="w-full py-6 bg-[#FF6600] text-white uppercase tracking-widest text-sm font-black rounded-2xl hover:bg-[#e65c00] shadow-2xl shadow-orange-100 transition-all disabled:opacity-50"
                 >
-                    {status === LoadingState.LOADING ? 'Enviando...' : `Solicitar Proposta — R$ ${total}`}
+                    {status === LoadingState.LOADING ? 'Enviando...' : `Solicitar Proposta`}
                 </button>
                 {status === LoadingState.ERROR && (
                   <div className="mt-4 p-4 bg-red-50 border border-red-100 rounded-xl text-center">
@@ -162,7 +161,7 @@ const Checkout: React.FC<CheckoutProps> = ({ items, onBack }) => {
                        <h3 className="font-black text-slate-800 text-lg tracking-tighter">{item.name}</h3>
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{item.category}</p>
                     </div>
-                    <span className="text-sm font-black text-slate-800">R$ {item.price}</span>
+                    <span className="text-sm font-black text-slate-800">Sob Consulta</span>
                  </div>
                ))}
             </div>
@@ -170,18 +169,14 @@ const Checkout: React.FC<CheckoutProps> = ({ items, onBack }) => {
             <div className="border-t border-slate-100 pt-8 space-y-4">
               <div className="flex justify-between text-sm font-bold text-slate-500">
                  <span>Subtotal</span>
-                 <span className="text-slate-800 font-black">R$ {subtotal}</span>
-              </div>
-              <div className="flex justify-between text-sm font-bold text-slate-500">
-                 <span>Setup e Onboarding</span>
-                 <span className="text-emerald-500 font-black">Cortesia</span>
+                 <span className="text-slate-800 font-black">Sob Consulta</span>
               </div>
             </div>
             
             <div className="border-t border-slate-100 mt-8 pt-8">
                <div className="flex justify-between items-center">
                  <span className="font-black text-2xl text-slate-800 tracking-tighter">Total Estimado</span>
-                 <span className="font-black text-4xl text-[#FF6600] tracking-tighter">R$ {total}</span>
+                 <span className="font-black text-4xl text-[#FF6600] tracking-tighter">Sob Consulta</span>
                </div>
             </div>
           </div>
