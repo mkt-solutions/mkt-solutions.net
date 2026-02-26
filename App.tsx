@@ -7,6 +7,9 @@
 
 import React, { useState } from 'react';
 import Navbar from './components/Navbar.tsx';
+import { AuthProvider, useAuth } from './components/AuthContext.tsx';
+import ProtectedRoute from './components/ProtectedRoute.tsx';
+import LoginPage from './components/LoginPage.tsx';
 import Hero from './components/Hero.tsx';
 import ProductGrid from './components/ProductGrid.tsx';
 import About from './components/About.tsx';
@@ -18,10 +21,25 @@ import JournalDetail from './components/JournalDetail.tsx';
 import CartDrawer from './components/CartDrawer.tsx';
 import Checkout from './components/Checkout.tsx';
 import Admin from './components/Admin.tsx';
-import { Product, JournalArticle, ViewState } from './types.ts';
+import { Product, JournalArticle } from './types.ts';
+
+interface ViewState {
+  type: 'home' | 'product' | 'journal' | 'checkout' | 'admin' | 'login';
+  product?: Product;
+  article?: JournalArticle;
+}
 
 function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
+}
+
+function AppContent() {
   const [view, setView] = useState<ViewState>({ type: 'home' });
+  const { isAuthenticated, logout } = useAuth();
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -62,10 +80,11 @@ function App() {
 
   const hideOnAdmin = view.type === 'admin';
   const hideOnCheckout = view.type === 'checkout';
+  const hideOnLogin = view.type === 'login';
 
   return (
     <div className="min-h-screen bg-[#F5F2EB] font-sans text-[#2C2A26] selection:bg-[#D6D1C7] selection:text-[#2C2A26]">
-      {!hideOnCheckout && !hideOnAdmin && (
+      {!hideOnCheckout && !hideOnAdmin && !hideOnLogin && (
         <Navbar 
             onNavClick={handleNavClick} 
             cartCount={cartItems.length}
@@ -115,14 +134,20 @@ function App() {
         )}
 
         {view.type === 'admin' && (
-            <Admin onBack={() => setView({ type: 'home' })} />
+            <ProtectedRoute onBackToHome={() => setView({ type: 'home' })}>
+              <Admin onBack={() => setView({ type: 'home' })} />
+            </ProtectedRoute>
+        )}
+
+        {view.type === 'login' && (
+            <LoginPage onBack={() => setView({ type: 'home' })} />
         )}
       </main>
 
-      {!hideOnCheckout && !hideOnAdmin && <Footer onLinkClick={handleNavClick} onAdminClick={() => setView({ type: 'admin' })} />}
-      
-      {!hideOnAdmin && <Assistant />}
-      
+      {!hideOnCheckout && !hideOnAdmin && !hideOnLogin && <Footer onLinkClick={handleNavClick} onAdminClick={() => setView({ type: 'login' })} />} 
+
+      {!hideOnAdmin && !hideOnLogin && <Assistant />}
+
       <CartDrawer 
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
@@ -134,6 +159,8 @@ function App() {
             setView({ type: 'checkout' });
         }}
       />
+      
+
     </div>
   );
 }
