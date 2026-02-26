@@ -140,7 +140,10 @@ function AppContent() {
         )}
 
         {view.type === 'login' && (
-            <LoginPage onBack={() => setView({ type: 'home' })} />
+            <LoginPage 
+              onBack={() => setView({ type: 'home' })}
+              onLoginSuccess={() => setView({ type: 'admin' })}
+            />
         )}
       </main>
 

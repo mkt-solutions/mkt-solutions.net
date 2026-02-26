@@ -3,9 +3,10 @@ import { useAuth } from './AuthContext';
 
 interface LoginPageProps {
   onBack: () => void;
+  onLoginSuccess: () => void;
 }
 
-const LoginPage: React.FC<LoginPageProps> = ({ onBack }) => {
+const LoginPage: React.FC<LoginPageProps> = ({ onBack, onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -15,7 +16,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBack }) => {
     e.preventDefault();
     setError('');
     if (login(email, password)) {
-      // Redirect or close login page, handled by parent (App.tsx)
+      onLoginSuccess();
     } else {
       setError('Credenciais inválidas. Por favor, tente novamente.');
     }
