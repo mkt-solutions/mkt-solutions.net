@@ -158,3 +158,31 @@ main {
 .img-zoom-container:hover img {
   transform: scale(1.08);
 }
+
+/* Markdown Body Styles */
+.markdown-body p {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body a {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.markdown-body a:hover {
+  color: var(--primary-hover);
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body li {
+  margin-bottom: 0.25rem;
+}

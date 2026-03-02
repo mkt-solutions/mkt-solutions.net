@@ -134,7 +134,10 @@ function AppContent() {
         )}
 
         {view.type === 'admin' && (
-            <ProtectedRoute onBackToHome={() => setView({ type: 'home' })}>
+            <ProtectedRoute 
+              onBackToHome={() => setView({ type: 'home' })}
+              onLoginSuccess={() => setView({ type: 'admin' })}
+            >
               <Admin onBack={() => setView({ type: 'home' })} />
             </ProtectedRoute>
         )}

@@ -5,13 +5,14 @@
 */
 
 import React, { useState, useRef, useEffect } from 'react';
+import Markdown from 'react-markdown';
 import { ChatMessage, AdminLead } from '../types.ts';
 import { sendMessageToGemini } from '../services/geminiService.ts';
 
 const Assistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Oi! Sou o Boris, estrategista aqui na MKT. Adoro conversar sobre estratégias de crescimento. Como está o momento da sua empresa hoje?', timestamp: Date.now() }
+    { role: 'model', text: 'Oi! Sou o Boris, estrategista aqui na MKT. Adoro conversar sobre estratégias de crescimento. Para eu te ajudar melhor, qual é o maior desafio ou dificuldade que sua empresa enfrenta hoje?', timestamp: Date.now() }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isThinking, setIsThinking] = useState(false);
@@ -119,7 +120,13 @@ const Assistant: React.FC = () => {
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[85%] p-5 rounded-3xl text-sm font-bold leading-relaxed ${msg.role === 'user' ? 'bg-[#FF6600] text-white shadow-xl shadow-orange-100 rounded-tr-none' : 'bg-white border border-slate-200 text-slate-700 shadow-sm rounded-tl-none'}`}>
-                  {msg.text}
+                  <div className="markdown-body">
+                    <Markdown components={{
+                      a: ({node, ...props}) => <a {...props} target="_blank" rel="noopener noreferrer" className="text-orange-600 underline hover:text-orange-700" />
+                    }}>
+                      {msg.text}
+                    </Markdown>
+                  </div>
                 </div>
               </div>
             ))}

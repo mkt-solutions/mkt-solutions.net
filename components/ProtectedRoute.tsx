@@ -5,15 +5,16 @@ import LoginPage from './LoginPage';
 interface ProtectedRouteProps {
   children: ReactNode;
   onBackToHome: () => void;
+  onLoginSuccess?: () => void;
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, onBackToHome }) => {
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, onBackToHome, onLoginSuccess }) => {
   const { isAuthenticated } = useAuth();
 
   if (isAuthenticated) {
     return <>{children}</>;
   } else {
-    return <LoginPage onBack={onBackToHome} />;
+    return <LoginPage onBack={onBackToHome} onLoginSuccess={onLoginSuccess} />;
   }
 };
 
