@@ -73,9 +73,18 @@ const Admin: React.FC<AdminProps> = ({ onBack }) => {
 
                 <div className="pt-6 border-t border-slate-50">
                     <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-3">Principais Pontos / Resumo:</span>
-                    <p className="text-sm font-bold text-slate-600 leading-relaxed italic">
+                    <p className="text-sm font-bold text-slate-600 leading-relaxed italic mb-4">
                         "{lead.resumo}"
                     </p>
+                    
+                    {lead.transcricao && (
+                      <details className="mt-4">
+                        <summary className="text-[9px] font-black text-[#FF6600] uppercase tracking-widest cursor-pointer hover:underline">Ver Transcrição Completa</summary>
+                        <pre className="mt-4 p-4 bg-slate-50 rounded-xl text-[10px] font-mono text-slate-500 whitespace-pre-wrap leading-relaxed">
+                          {lead.transcricao}
+                        </pre>
+                      </details>
+                    )}
                 </div>
 
                 <div className="mt-6 flex gap-2">

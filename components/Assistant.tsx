@@ -45,12 +45,17 @@ const Assistant: React.FC = () => {
         const args = result.functionCall.args;
         setIsSendingEmail(true);
         
+        const transcricao = [...history, { role: 'user', text: userMsg.text }].map(m => 
+          `${m.role === 'user' ? 'Cliente' : 'Boris'}: ${m.text}`
+        ).join('\n');
+
         saveLeadToAdmin({
             id: Math.random().toString(36).substr(2, 9),
             nome: args.nome,
             email: args.email,
             whatsapp: args.whatsapp,
             resumo: args.resumo,
+            transcricao: transcricao,
             tag: args.tag || 'lead padrão',
             data: Date.now()
         });
@@ -59,14 +64,13 @@ const Assistant: React.FC = () => {
         
         const payload = {
           _subject: `Novo Lead IA [${args.tag || 'Geral'}]: ${args.nome}`,
-          nome: args.nome,
-          email: args.email,
-          whatsapp: args.whatsapp,
-          resumo: args.resumo,
-          tag: args.tag,
-          transcricao: [...history, { role: 'user', text: userMsg.text }].map(m => 
-            `${m.role === 'user' ? 'Cliente' : 'Boris'}: ${m.text}`
-          ).join('\n')
+          "Nome do Cliente": args.nome,
+          "E-mail": args.email,
+          "WhatsApp": args.whatsapp,
+          "Principais Pontos / Resumo": args.resumo,
+          "Tag": args.tag || 'Geral',
+          "Transcrição Completa": transcricao,
+          _honey: ""
         };
 
         try {

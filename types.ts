@@ -40,6 +40,7 @@ export interface AdminLead {
   email: string;
   whatsapp: string;
   resumo: string;
+  transcricao?: string;
   tag: string;
   data: number;
 }
