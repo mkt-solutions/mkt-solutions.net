@@ -92,7 +92,7 @@ const Footer: React.FC<FooterProps> = ({ onLinkClick, onAdminClick }) => {
       </div>
 
       <div className="max-w-7xl mx-auto mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] text-[#808080]">
-        <p>© 2025 mkt.solutions | web digital plans</p>
+        <p>© 2026 mkt.solutions | web digital plans</p>
         <p className="mt-4 md:mt-0">Estratégia · Performance · Resultados</p>
       </div>
     </footer>
